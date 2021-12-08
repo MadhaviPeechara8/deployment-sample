@@ -41,3 +41,38 @@
 label{
     color:rgb(7, 7, 7);
 }
+
+
+@media screen and (max-width: 767px){   
+    .cardHome{      
+        width: 100%;
+    } 
+}
+
+@media screen and (min-width: 768px) {      
+    .cardHome{      
+        width: 100%;
+     } 
+} 
+@media (min-width: 992px){      
+    .cardHome{        
+        width: 100%;
+      } 
+}
+
+@media screen and (max-width: 767px){   
+    .cardwidth{      
+        width: 100%;
+    } 
+}
+
+@media screen and (min-width: 768px) {      
+    .cardwidth{      
+        width: 100%;
+     } 
+} 
+@media (min-width: 992px){      
+    .cardwidth{        
+        width: 100%;
+      } 
+}
