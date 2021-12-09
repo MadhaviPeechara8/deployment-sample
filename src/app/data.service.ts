@@ -41,6 +41,10 @@ getWebinarsData():Observable<any[]>{
   let username=localStorage.getItem("username");
   return this.hc.get<any[]>(`/user/getwebinar/${username}`);
 }
+getAdminWebinarsData():Observable<any[]>{
+  let username="MadhaviPeechara";
+  return this.hc.get<any[]>(`/user/getwebinar/${username}`);
+}
 createNewWebinar(Obj:any):Observable<any>{
   console.log(Obj)
   return this.hc.post("/user/addwebinar",Obj);

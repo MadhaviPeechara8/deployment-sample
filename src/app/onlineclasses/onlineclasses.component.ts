@@ -15,6 +15,7 @@ export class OnlineclassesComponent implements OnInit {
  editClassIndex:number=-1;
  todo:any[]=[];
  webinars:any[]=[];
+ adwebinars:any[]=[];
  //let un=localStorage.getItem("username");
  editClassObj=new OnlineCls('','','','','');
  onlineclsObj=new OnlineCls('','','','','');
@@ -33,11 +34,24 @@ timetable:any=[];
     this.getTodos();
     this.getWebinars();
     this.gettimetable();
+    this.getAdminwebinars();
+    
     console.log("Webinars init:"+this.webinars)
     if(this.timetable.length==1){
     this.timetablestatus=true;
     }
     console.log("tt: pi",this.timetable["0"].productImage);
+  }
+  getAdminwebinars(){
+    this.dsObj.getAdminWebinarsData().subscribe(
+      res=>{
+        console.log("webinars"+res);
+        this.adwebinars=res["message"];
+      },
+      err=>{
+        console.log("err is",err);
+      }
+    )
   }
   file:File;
   selectFile(event:any){

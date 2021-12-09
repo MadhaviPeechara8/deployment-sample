@@ -67,36 +67,8 @@ userApi.get("/getusers", expressErrorHandler(async (req, res) => {
 userApi.post("/adminaddwebinar",expressErrorHandler(async (req,res,next)=>{
     //get user obj
     let newcls = req.body;
-    let userList = await userCollectionObj.find().toArray()
-        //insert
-        allusers=userList;
-        console.log(JSON.stringify(req.body));
-        let cls=JSON.stringify(req.body);
-        res.send();
-        console.log("This is me "+allusers[0]["username"])
-        console.log("Length of list "+allusers.length)
-        console.log("Hello")
-        //console.log(newcls)
-        //console.log("user 1"+JSON.parse(newcls))
-        let lenusers=Number(allusers.length);
-        const myArray = cls.split(":")
-        console.log("array split"+myArray[1])
-        let t=myArray[1];
-        const myArray2=t.split(",")
-        let x=myArray2[0];
-        console.log(x)
-        //await webinarcollectionObj.insertOne(newcls);
-        for(let i=0;i<lenusers;i++){
-            
-            //console.log("user 1"+cls["username"])
-            //cls.username=allusers[i]["username"]
-            console.log(allusers[i]["username"])
-            cls=cls.replace(x,allusers[i]["username"])
-            x=allusers[i]["username"];
-            console.log(cls)
-            await webinarcollectionObj.insertMany(JSON.parse(cls));
-        }
-        res.send({ message: "Class created" })
+    await webinarcollectionObj.insertOne(newcls)   
+    res.send({ message: "Class created" })
 }))
 
 
